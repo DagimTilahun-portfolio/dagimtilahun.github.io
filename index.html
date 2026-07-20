@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dagim Tilahun - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+      <style>
+        /* Smooth base transitions for scroll animations */
+        .scroll-animate {
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        /* Hide scrollbars but keep functionality */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+
+  <style>
+    .scrollbar-thin::-webkit-scrollbar { height: 6px; }
+    .scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
+    .scrollbar-thin::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
+    
+    /* Sliding Bottom Sheet Modal Effect for Project Cards */
+    .project-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      transform: translateY(100%);
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow-y: auto;
+    }
+    body.modal-active .project-modal {
+      transform: translateY(0);
+    }
+    body.modal-active {
+      overflow: hidden;
+    }
+    .glow-hover:hover {
+      box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.4);
+    }
+  </style>
+</head>
+<html lang="en" class="scroll-smooth">
+
+<body class="bg-[#020617] text-white font-sans antialiased selection:bg-blue-500/30 overflow-x-hidden">
+
+  <!-- Fixed Hero Section (Stays underneath) -->
+<section class="fixed inset-0 h-screen w-full flex items-start justify-start overflow-y-auto z-10 pt-16 md:pt-24">
+
+
+    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105" style="background-image: url('hero-bg.jpg');">
+      <div class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+    </div>
+
+    
+   <!-- ─── MAIN HERO CONTAINER: Forces content to the top and strictly clips overflows ─── -->
+<div class="relative w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-start justify-start px-4 sm:px-6 md:px-12 overflow-hidden pt-4 pb-2">
+  
+  <!-- ─── LEFT SIDE: TEXT, QUOTE, LINKS & MICRO-CARDS (Lg: Spans 7 Columns) ─── -->
+  <div class="w-full lg:col-span-7 space-y-5 flex flex-col justify-start items-start overflow-hidden">
+    
+    <!-- Identity Header -->
+    <div class="space-y-1 text-left">
+      <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight break-words">
+        Dagim Tilahun
+      </h2>
+      <p class="text-xs text-blue-400 font-medium tracking-wide uppercase">
+        AI Researcher & Student
+      </p>
+    </div>
+
+    <!-- Philosophy Quote Block -->
+    <div class="w-full p-4 sm:p-5 bg-slate-900/30 border border-slate-800/40 rounded-2xl relative overflow-hidden shadow-inner max-w-xl text-left">
+      <span class="text-5xl text-blue-500/10 font-serif absolute -top-1 left-3 select-none">“</span>
+      <p class="italic text-slate-300 text-xs sm:text-sm leading-relaxed relative z-10 pl-2 break-words">
+        Technology matters only when it meets the needs of the people it is meant to serve.
+      </p>
+      <div class="h-1 w-16 bg-gradient-to-r from-blue-500 to-cyan-400 mt-3 rounded-full"></div>
+    </div>
+
+    <!-- Social Icons Hotlink Bar -->
+    <div class="flex items-center gap-3 max-w-xs pt-1">
+      <!-- Email Logo -->
+      <a href="mailto:dagimt628@gmail.com" class="p-2.5 text-slate-400 hover:text-blue-400 hover:bg-blue-950/40 border border-slate-800/40 rounded-xl transition-all duration-200 flex items-center justify-center" title="Email Me">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      </a>
+      <!-- Telegram Logo -->
+      <a href="https://t.me/Supernaturalfavor" target="_blank" rel="noopener noreferrer" class="p-2.5 text-slate-400 hover:text-sky-400 hover:bg-sky-950/40 border border-slate-800/40 rounded-xl transition-all duration-200 flex items-center justify-center" title="Telegram">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+      </a>
+      <!-- GitHub Logo -->
+      <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="p-2.5 text-slate-400 hover:text-white hover:bg-slate-800/60 border border-slate-800/40 rounded-xl transition-all duration-200 flex items-center justify-center" title="GitHub">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+      </a>
+    </div>
+
+    <!-- Clickable Navigation Micro-Cards -->
+    <div class="w-full space-y-2 max-w-md pt-1 text-left">
+      <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest pl-1 block">Explore</span>
+      <div class="grid grid-cols-3 gap-2">
+        <a href="#projects" class="p-2.5 text-center rounded-xl bg-slate-900/40 border border-slate-800/80 hover:border-blue-500/40 hover:bg-blue-950/20 transition-all duration-200 group">
+          <div class="text-white font-semibold text-[11px] sm:text-xs group-hover:text-blue-400 transition-colors">Projects</div>
+        </a>
+        <a href="#leadership" class="p-2.5 text-center rounded-xl bg-slate-900/40 border border-slate-800/80 hover:border-indigo-500/40 hover:bg-indigo-950/20 transition-all duration-200 group">
+          <div class="text-white font-semibold text-[11px] sm:text-xs group-hover:text-indigo-400 transition-colors">Leadership</div>
+        </a>
+        <a href="#toolkit" class="p-2.5 text-center rounded-xl bg-slate-900/40 border border-slate-800/80 hover:border-cyan-400/40 hover:bg-cyan-950/20 transition-all duration-200 group">
+          <div class="text-white font-semibold text-[11px] sm:text-xs group-hover:text-cyan-400 transition-colors">Toolkit</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ─── RIGHT SIDE: PROFILE IMAGE CANVAS (Lg: Spans 5 Columns) ─── -->
+  <div class="w-full lg:col-span-5 flex justify-center lg:justify-end items-start pt-2 lg:pt-0 overflow-hidden">
+    <div class="relative max-w-[240px] sm:max-w-xs w-full filter drop-shadow-[0_0_40px_rgba(59,130,246,0.12)]">
+      <img src="profile.png" alt="Dagim Tilahun" class="w-full h-auto object-contain max-h-[38vh] lg:max-h-[55vh]" />
+    </div>
+  </div>
+
+</div>
+ 
+    
+    
+  </section>
+
+  <!-- Scrolling Content Layer (Slides UP from bottom to cover Hero) -->
+  <div class="relative z-20 top-[100vh] bg-[#020617] shadow-[0_-30px_60px_rgba(0,0,0,0.9)] border-t border-slate-900">
+
+
+
+    <!-- About Section -->
+    <section class="max-w-6xl mx-auto px-6 py-24 space-y-16">
+      <div class="max-w-4xl space-y-4" data-aos="fade-up" data-aos-duration="1000">
+        <div class="flex items-center space-x-2 text-blue-400 font-bold tracking-widest text-xs uppercase">
+          <span>Dagi Tilahun 💎</span>
+          <span class="h-px w-12 bg-blue-900"></span>
+          <span>About Me</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400">
+          Building technology from curiosity, purpose, and responsibility
+        </h2>
+      </div>
+
+      <div class="text-slate-300 text-base sm:text-lg leading-relaxed space-y-6 max-w-4xl font-normal" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+        <p>I am <span class="text-white font-medium">Dagim Tilahun Kassa</span>, an aspiring computer scientist from Ethiopia with a deep interest in artificial intelligence, healthcare, and engineering solutions for communities where technology can create meaningful change.</p>
+        <p>Growing up in Ethiopia, I witnessed how limitations in healthcare resources can affect people's lives. These experiences shaped my belief that technology should move beyond innovation for its own sake and focus on solving problems that matter. This belief has guided my journey toward exploring how artificial intelligence can support healthcare systems through reliable, accessible, and human-centered solutions.</p>
+        <p>My journey into computer science began with curiosity: understanding how software works, how machines learn, and how technology can be built to address real challenges. Through independent learning, research experiences, and collaboration with institutions including the <span class="text-blue-400 font-medium">Ethiopian Artificial Intelligence Institute</span>, <span class="text-blue-400 font-medium">Wolaita Sodo University Technology Campus</span>, and healthcare professionals, I have developed projects in machine learning, predictive modeling, and AI applications.</p>
+      </div>
+
+      <!-- Completely Restored Journey Timeline Section -->
+      <div class="pt-16 border-t border-slate-900" data-aos="fade-up" data-aos-duration="1000">
+        <div class="mb-8">
+          <h3 class="text-2xl font-bold text-white">My Journey</h3>
+          <p class="text-xs text-slate-500 mt-1">Scroll horizontally to explore history</p>
+        </div>
+        <div class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-6 scrollbar-thin">
+          <div class="w-[80vw] sm:w-[45vw] lg:w-[30vw] shrink-0 snap-center bg-slate-900/40 border border-slate-800 p-6 rounded-2xl h-64 flex flex-col justify-between transition-all duration-300 hover:scale-[1.03] hover:border-blue-500/40 glow-hover">
+            <span class="text-xs font-bold uppercase text-blue-400 bg-blue-950/50 border border-blue-900/30 px-2.5 py-1 rounded-md w-max">2021</span>
+            <h4 class="text-base font-bold text-white">Discovering Technology</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">My journey in technology began with front-end development, where I learned the foundations of building digital experiences and developed my curiosity about how software can solve real-world problems.</p>
+          </div>
+          <div class="w-[80vw] sm:w-[45vw] lg:w-[30vw] shrink-0 snap-center bg-slate-900/40 border border-slate-800 p-6 rounded-2xl h-64 flex flex-col justify-between transition-all duration-300 hover:scale-[1.03] hover:border-blue-500/40 glow-hover">
+            <span class="text-xs font-bold uppercase text-blue-400 bg-blue-950/50 border border-blue-900/30 px-2.5 py-1 rounded-md w-max">2023</span>
+            <h4 class="text-base font-bold text-white">From Learning to Building</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">I expanded my focus toward embedded systems and engineering through STEM initiatives. I founded my school's first Technology and Innovation Club, training 47 students and supporting 20 student-led projects. I also earned recognition as a national mathematics Olympiad medalist.</p>
+          </div>
+          <div class="w-[80vw] sm:w-[45vw] lg:w-[30vw] shrink-0 snap-center bg-slate-900/40 border border-slate-800 p-6 rounded-2xl h-64 flex flex-col justify-between transition-all duration-300 hover:scale-[1.03] hover:border-blue-500/40 glow-hover">
+            <span class="text-xs font-bold uppercase text-blue-400 bg-blue-950/50 border border-blue-900/30 px-2.5 py-1 rounded-md w-max">2024</span>
+            <h4 class="text-base font-bold text-white">Leading STEM Innovation</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">I became a representative of the STEM centers at Wolaita Sodo University and Liqa Boarding School, representing these communities twice at national innovation conferences.</p>
+          </div>
+          <div class="w-[80vw] sm:w-[45vw] lg:w-[30vw] shrink-0 snap-center bg-slate-900/40 border border-slate-800 p-6 rounded-2xl h-64 flex flex-col justify-between transition-all duration-300 hover:scale-[1.03] hover:border-blue-500/40 glow-hover">
+            <span class="text-xs font-bold uppercase text-blue-400 bg-blue-950/50 border border-blue-900/30 px-2.5 py-1 rounded-md w-max">2025 - 2026</span>
+            <h4 class="text-base font-bold text-white">Advanced AI & Systems Research</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">Pivoted directly toward clinical machine learning frameworks and predictive model development, securing collaborative relationships with clinical professionals and tech centers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <!-- Projects Section -->
+<section id="projects" class="bg-slate-900/20 border-t border-slate-900/60 py-24 px-6">
+
+      <div class="max-w-6xl mx-auto space-y-12">
+        <div class="text-center max-w-3xl mx-auto space-y-3" data-aos="fade-up" data-aos-duration="1000">
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Projects & Research</h2>
+          <p class="text-slate-400 text-sm">A collection of my research and engineering projects aimed at solving real-world problems.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-6">
+          <!-- Project 1 Card -->
+          <div class="bg-slate-900/40 border border-slate-800/70 rounded-2xl overflow-hidden flex flex-col justify-between h-full transition-all duration-300 hover:scale-[1.03] hover:border-blue-500/40 glow-hover" data-aos="fade-right" data-aos-duration="1000">
+            <div class="aspect-video w-full overflow-hidden bg-slate-950">
+              <img src="proj-drought.jpg" alt="Agricultural Drought Platform" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6 space-y-4 flex-grow flex flex-col justify-between">
+              <div>
+                <span class="bg-amber-500/10 text-amber-400 text-[10px] font-bold tracking-wider uppercase px-2 py-1 rounded border border-amber-500/20">🟡 Research Planning</span>
+                <h3 class="text-xl font-bold text-white mt-2">Explainable AI Platform for Agricultural Drought Forecasting</h3>
+                <p class="text-xs text-slate-400 mt-2 line-clamp-3">Combining machine learning and Earth observation data to construct an interactive early drought forecasting network in Southern Ethiopia.</p>
+              </div>
+              <button onclick="openProject('drought')" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-medium py-2.5 rounded-xl transition-colors text-xs font-bold tracking-wide mt-4">Read More &rarr;</button>
+            </div>
+          </div>
+
+          <!-- Project 2 Card -->
+          <div class="bg-slate-900/40 border border-slate-800/70 rounded-2xl overflow-hidden flex flex-col justify-between h-full transition-all duration-300 hover:scale-[1.03] hover:border-blue-500/40 glow-hover" data-aos="fade-left" data-aos-duration="1000">
+            <div class="aspect-video w-full overflow-hidden bg-slate-950">
+              <img src="proj-embedded.jpg" alt="Embedded Systems Framework" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6 space-y-4 flex-grow flex flex-col justify-between">
+              <div>
+                <span class="bg-emerald-500/10 text-emerald-400 text-[10px] font-bold tracking-wider uppercase px-2 py-1 rounded border border-emerald-500/20">✅ Deployed</span>
+                <h3 class="text-xl font-bold text-white mt-2">Embedded Hardware Prototypes</h3>
+                <p class="text-xs text-slate-400 mt-2 line-clamp-3">Practical microcontroller assemblies including a fingerprint system used at Wolaita Sodo University, a water filter analyzer, and automated schedule triggers.</p>
+              </div>
+              <button onclick="openProject('embedded')" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-medium py-2.5 rounded-xl transition-colors text-xs font-bold tracking-wide mt-4">Read More &rarr;</button>
+            </div>
+          </div>
+
+          <!-- Project 3 Card -->
+          <div class="bg-slate-900/40 border border-slate-800/70 rounded-2xl overflow-hidden flex flex-col justify-between h-full transition-all duration-300 hover:scale-[1.03] hover:border-blue-500/40 glow-hover" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="100">
+            <div class="aspect-video w-full overflow-hidden bg-slate-950">
+              <img src="proj-mental.jpg" alt="Mental Health AI Platform" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6 space-y-4 flex-grow flex flex-col justify-between">
+              <div>
+                <span class="bg-blue-500/10 text-blue-400 text-[10px] font-bold tracking-wider uppercase px-2 py-1 rounded border border-blue-500/20">🔄 In Progress</span>
+                <h3 class="text-xl font-bold text-white mt-2">Multilingual AI Platform for Accessible Mental Health Support</h3>
+                <p class="text-xs text-slate-400 mt-2 line-clamp-3">An anonymous, culturally aware multilingual platform exploring AI-driven supportive conversations for underserved communities.</p>
+              </div>
+              <button onclick="openProject('mental')" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-medium py-2.5 rounded-xl transition-colors text-xs font-bold tracking-wide mt-4">Read More &rarr;</button>
+            </div>
+          </div>
+
+          <!-- Project 4 Card -->
+          <div class="bg-slate-900/40 border border-slate-800/70 rounded-2xl overflow-hidden flex flex-col justify-between h-full transition-all duration-300 hover:scale-[1.03] hover:border-blue-500/40 glow-hover" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="100">
+            <div class="aspect-video w-full overflow-hidden bg-slate-950">
+              <img src="proj-school.jpg" alt="School Management System" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6 space-y-4 flex-grow flex flex-col justify-between">
+              <div>
+                <span class="bg-emerald-500/10 text-emerald-400 text-[10px] font-bold tracking-wider uppercase px-2 py-1 rounded border border-emerald-500/20">✅ Completed & Deployed</span>
+                <h3 class="text-xl font-bold text-white mt-2">Integrated School Management & Information System</h3>
+                <p class="text-xs text-slate-400 mt-2 line-clamp-3">A multi-portal educational architecture automating administrative registries, tuition evaluation pipelines, and academic report workflows.</p>
+              </div>
+              <button onclick="openProject('school')" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-medium py-2.5 rounded-xl transition-colors text-xs font-bold tracking-wide mt-4">Read More &rarr;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+<!-- =========================================================
+    LEADERSHIP & EXPERIENCE MEDIA GRID
+    ========================================================= -->
+<section id="experience-gallery" class="py-12 px-6 max-w-6xl mx-auto text-slate-100" data-aos="fade-up">
+    <div class="mb-8">
+        <h3 class="text-xl font-bold text-white mb-2">Project & Exhibition Gallery</h3>
+        <p class="text-slate-400 text-sm">Snapshots from artificial intelligence exhibitions, hardware prototyping, and institutional collaborations.</p>
+    </div>
+
+    <!-- Gallery Grid Layout -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        
+        <!-- Robotics / Track Project Photo -->
+        <div class="group relative overflow-hidden rounded-xl border border-slate-800 bg-[#0b1329]/40 aspect-[3/4]">
+            <img src="robotics-track.jpg" alt="Robotics Testing" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3">
+                <p class="text-xs text-slate-200">Hardware & Track Prototyping</p>
+            </div>
+        </div>
+
+        <!-- Exhibition Portrait 1 -->
+        <div class="group relative overflow-hidden rounded-xl border border-slate-800 bg-[#0b1329]/40 aspect-[3/4]">
+            <img src="exhibition-hall.jpg" alt="Exhibition Attendance" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3">
+                <p class="text-xs text-slate-200">Science & Technology Museum Exhibition</p>
+            </div>
+        </div>
+
+        <!-- Embedded Attendance System Device -->
+        <div class="group relative overflow-hidden rounded-xl border border-slate-800 bg-[#0b1329]/40 aspect-[3/4]">
+            <img src="attendance-device.jpg" alt="Biometric Device Project" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3">
+                <p class="text-xs text-slate-200">Biometric Attendance System Integration</p>
+            </div>
+        </div>
+
+        <!-- Team Presentation Photo -->
+        <div class="group relative overflow-hidden rounded-xl border border-slate-800 bg-[#0b1329]/40 aspect-[3/4]">
+            <img src="team-presentation.jpg" alt="Project Team" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3">
+                <p class="text-xs text-slate-200">Project Presentation & Team Showcase</p>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+        INSTITUTIONAL PARTNERS & CREDENTIALS (EDGE-TO-EDGE PRO PRESET)
+        ========================================================= -->
+    <div class="mt-16 pt-10 border-t border-slate-800/60" data-aos="fade-up">
+        <p class="text-center text-xs font-semibold tracking-widest text-slate-500 uppercase mb-8">
+            Associated Institutions & Programs
+        </p>
+        
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 md:gap-8 items-center justify-items-center max-w-4xl mx-auto px-4">
+            
+            <!-- Ethiopian AI Institute -->
+            <div class="flex flex-col items-center justify-center group w-full">
+                <div class="w-24 h-24 rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden backdrop-blur-sm transition-all duration-300 group-hover:border-cyan-500/40 group-hover:shadow-[0_8px_25px_rgba(6,182,212,0.15)]">
+                    <img src="ethiopian-ai-logo.png" alt="Ethiopian Artificial Intelligence Institute" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <span class="text-[11px] text-center font-semibold mt-3 text-slate-400 group-hover:text-cyan-400 transition-colors duration-300 max-w-[120px] tracking-wide leading-tight">Ethiopian AI Institute</span>
+            </div>
+            
+            <!-- INSA -->
+            <div class="flex flex-col items-center justify-center group w-full">
+                <div class="w-24 h-24 rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden backdrop-blur-sm transition-all duration-300 group-hover:border-cyan-500/40 group-hover:shadow-[0_8px_25px_rgba(6,182,212,0.15)]">
+                    <img src="insa.png" alt="INSA" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <span class="text-[11px] text-center font-semibold mt-3 text-slate-400 group-hover:text-cyan-400 transition-colors duration-300 max-w-[120px] tracking-wide leading-tight">INSA</span>
+            </div>
+            
+            <!-- Wolaita Liqa School -->
+            <div class="flex flex-col items-center justify-center group w-full">
+                <div class="w-24 h-24 rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden backdrop-blur-sm transition-all duration-300 group-hover:border-cyan-500/40 group-hover:shadow-[0_8px_25px_rgba(6,182,212,0.15)]">
+                    <img src="wolaita-liqa-logo.png" alt="Wolaita Liqa School" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <span class="text-[11px] text-center font-semibold mt-3 text-slate-400 group-hover:text-cyan-400 transition-colors duration-300 max-w-[120px] tracking-wide leading-tight">Wolaita Liqa School</span>
+            </div>
+            
+            <!-- Wolaita Sodo University -->
+            <div class="flex flex-col items-center justify-center group w-full">
+                <div class="w-24 h-24 rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden backdrop-blur-sm transition-all duration-300 group-hover:border-cyan-500/40 group-hover:shadow-[0_8px_25px_rgba(6,182,212,0.15)]">
+                    <img src="wsu-logo.png" alt="Wolaita Sodo University" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <span class="text-[11px] text-center font-semibold mt-3 text-slate-400 group-hover:text-cyan-400 transition-colors duration-300 max-w-[120px] tracking-wide leading-tight">Wolaita Sodo Univ.</span>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- LEADERSHIP & EXPERIENCE SECTION CONTAINER -->
+<section id="leadership" class="space-y-16 max-w-6xl mx-auto px-4 py-12 text-slate-300 select-none">
+
+
+  <!-- ================= LEADERSHIP & IMPACT GROUP ================= -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+    
+    <!-- Left Column: Title & Quote (Sticky behavior fixed on Mobile) -->
+    <div class="md:col-span-1 space-y-8 md:sticky md:top-24 self-start">
+      <div class="space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="p-2.5 bg-blue-950/40 border border-blue-800/50 rounded-xl text-blue-400 shadow-[0_0_15px_rgba(59,130,246,0.1)]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="text-xl font-bold tracking-wider text-white uppercase">Leadership & Impact</h3>
+        </div>
+        <p class="text-slate-400 leading-relaxed text-sm">Building communities, mentoring students, and representing STEM initiatives at regional and national levels.</p>
+      </div>
+
+      <!-- Testimonial/Quote Card -->
+      <div class="p-6 bg-slate-900/40 border border-slate-800/60 rounded-2xl backdrop-blur-sm relative overflow-hidden group">
+        <span class="text-6xl text-blue-500/10 font-serif absolute -top-2 left-2 pointer-events-none">“</span>
+        <p class="italic text-slate-400 text-sm leading-relaxed relative z-10">
+          Leadership is not about a title, it's about creating opportunities for others to grow.
+        </p>
+        <div class="w-8 h-[2px] bg-blue-500 mt-4 rounded-full transition-all duration-300 group-hover:w-16"></div>
+      </div>
+    </div>
+
+    <!-- Right Column: Vertical Timeline Track -->
+    <div class="md:col-span-2 relative border-l border-slate-800/80 ml-4 md:ml-6 pl-8 md:pl-10 space-y-6 before:absolute before:top-0 before:left-[-1px] before:h-full before:w-[1px] before:bg-gradient-to-b before:from-blue-500 before:via-indigo-500/40 before:to-transparent">
+      
+      <!-- Leadership Item 1 -->
+      <div class="group relative timeline-card opacity-0 translate-y-4 transition-all duration-700 ease-out">
+        <div class="absolute -left-[41px] md:-left-[49px] top-6 w-5 h-5 rounded-full bg-slate-950 border-2 border-blue-500 flex items-center justify-center z-10 transition-all duration-300 group-hover:border-cyan-400 group-hover:scale-110 shadow-[0_0_10px_rgba(59,130,246,0.4)]">
+          <svg class="text-blue-400 w-2.5 h-2.5 group-hover:text-cyan-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 2 7 12 12 22 7 12 2" fill="currentColor" fill-opacity="0.2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+        </div>
+        <div class="p-5 rounded-2xl bg-gradient-to-br from-slate-900/60 to-slate-900/20 border border-slate-800/80 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/40 hover:shadow-[0_10px_30px_rgba(59,130,246,0.05)] hover:from-slate-900/80">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+            <div>
+              <h4 class="text-white font-semibold text-base transition-colors duration-300 group-hover:text-blue-400">Founder & President</h4>
+              <p class="text-xs text-blue-400 font-medium">Technology and Innovation Club | <span class="text-slate-400">Liqa Boarding School</span></p>
+            </div>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-blue-950/60 border border-blue-800/40 text-blue-300 self-start sm:self-center font-mono">2023 - Present</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">Founded the school's first Technology and Innovation Club to promote hands-on learning in programming, electronics, and engineering. Developed training activities that certified 47 students and supported more than 20 student-led technology projects, creating a lasting culture of innovation within the school.</p>
+        </div>
+      </div>
+
+      <!-- Leadership Item 2 -->
+      <div class="group relative timeline-card opacity-0 translate-y-4 transition-all duration-700 ease-out">
+        <div class="absolute -left-[41px] md:-left-[49px] top-6 w-5 h-5 rounded-full bg-slate-950 border-2 border-indigo-500 flex items-center justify-center z-10 transition-all duration-300 group-hover:border-purple-400 shadow-[0_0_10px_rgba(99,102,241,0.4)]">
+          <svg class="text-indigo-400 w-2.5 h-2.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2.5 3 6 3s6-1 6-3v-5"/></svg>
+        </div>
+        <div class="p-5 rounded-2xl bg-gradient-to-br from-slate-900/60 to-slate-900/20 border border-slate-800/80 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500/40 hover:shadow-[0_10px_30px_rgba(99,102,241,0.05)] hover:from-slate-900/80">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+            <div>
+              <h4 class="text-white font-semibold text-base group-hover:text-indigo-400 transition-colors">STEM Representative</h4>
+              <p class="text-xs text-indigo-400 font-medium">Liqa Boarding School</p>
+            </div>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-950/60 border border-indigo-800/40 text-indigo-300 self-start sm:self-center font-mono">2023 - Present</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">Represented the school's STEM Center by coordinating innovation activities, encouraging student participation in research, and supporting science and engineering programs.</p>
+        </div>
+      </div>
+
+      <!-- Leadership Item 3 -->
+      <div class="group relative timeline-card opacity-0 translate-y-4 transition-all duration-700 ease-out">
+        <div class="absolute -left-[41px] md:-left-[49px] top-6 w-5 h-5 rounded-full bg-slate-950 border-2 border-blue-500 flex items-center justify-center z-10 transition-all duration-300 group-hover:border-cyan-400 shadow-[0_0_10px_rgba(59,130,246,0.4)]">
+          <svg class="text-blue-400 w-2.5 h-2.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 20v-6M2 20v-6M4 10h16M12 4v6M4 20h16M6 20v-6M10 20v-6M14 20v-6M18 20v-6"/></svg>
+        </div>
+        <div class="p-5 rounded-2xl bg-gradient-to-br from-slate-900/60 to-slate-900/20 border border-slate-800/80 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/40 hover:shadow-[0_10px_30px_rgba(59,130,246,0.05)] hover:from-slate-900/80">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+            <div>
+              <h4 class="text-white font-semibold text-base group-hover:text-blue-400 transition-colors">STEM Representative</h4>
+              <p class="text-xs text-blue-400 font-medium">Wolaita Sodo University Technology Campus</p>
+            </div>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-blue-950/60 border border-blue-800/40 text-blue-300 self-start sm:self-center font-mono">2024 - Present</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">Represented the university's STEM Center and participated in technology outreach, engineering activities, and collaborative innovation programs connecting secondary school students with university researchers.</p>
+        </div>
+      </div>
+
+      <!-- Leadership Item 4 -->
+      <div class="group relative timeline-card opacity-0 translate-y-4 transition-all duration-700 ease-out">
+        <div class="absolute -left-[41px] md:-left-[49px] top-6 w-5 h-5 rounded-full bg-slate-950 border-2 border-indigo-500 flex items-center justify-center z-10 transition-all duration-300 group-hover:border-purple-400 shadow-[0_0_10px_rgba(99,102,241,0.4)]">
+          <svg class="text-indigo-400 w-2.5 h-2.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="p-5 rounded-2xl bg-gradient-to-br from-slate-900/60 to-slate-900/20 border border-slate-800/80 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500/40 hover:shadow-[0_10px_30px_rgba(99,102,241,0.05)] hover:from-slate-900/80">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+            <div>
+              <h4 class="text-white font-semibold text-base group-hover:text-indigo-400 transition-colors">National Research & Innovation Conferences</h4>
+              <p class="text-xs text-indigo-400 font-medium">Representing Liqa Boarding School and Wolaita Sodo University STEM Centers</p>
+            </div>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-950/60 border border-indigo-800/40 text-indigo-300 self-start sm:self-center font-mono">2024 - Present</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">Represented both Liqa Boarding School and Wolaita Sodo University STEM Centers at two national research and innovation conferences, presenting projects, exchanging ideas with researchers, and engaging with Ethiopia's growing innovation community.</p>
+        </div>
+      </div>
+
+      <!-- Leadership Item 5 -->
+      <div class="group relative timeline-card opacity-0 translate-y-4 transition-all duration-700 ease-out">
+        <div class="absolute -left-[41px] md:-left-[49px] top-6 w-5 h-5 rounded-full bg-slate-950 border-2 border-blue-500 flex items-center justify-center z-10 transition-all duration-300 group-hover:border-cyan-400 shadow-[0_0_10px_rgba(59,130,246,0.4)]">
+          <svg class="text-blue-400 w-2.5 h-2.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+        </div>
+        <div class="p-5 rounded-2xl bg-gradient-to-br from-slate-900/60 to-slate-900/20 border border-slate-800/80 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/40 hover:shadow-[0_10px_30px_rgba(59,130,246,0.05)] hover:from-slate-900/80">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+            <div>
+              <h4 class="text-white font-semibold text-base group-hover:text-blue-400 transition-colors">National Mathematics Olympiad</h4>
+            </div>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-blue-950/60 border border-blue-800/40 text-blue-300 self-start sm:self-center font-mono">2026</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">Earned national recognition as a Mathematics Olympiad medalist, strengthening my analytical thinking and mathematical problem-solving foundation.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <hr class="border-slate-900/60 my-6" />
+
+  <!-- ================= EXPERIENCE GROUP ================= -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+    
+    <!-- Left Column: Title & Analytics Stats (Sticky behavior fixed on Mobile) -->
+    <div class="md:col-span-1 space-y-8 md:sticky md:top-24 self-start">
+      <div class="space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="p-2.5 bg-indigo-950/40 border border-indigo-800/50 rounded-xl text-indigo-400 shadow-[0_0_15px_rgba(99,102,241,0.1)]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+          <h3 class="text-xl font-bold tracking-wider text-white uppercase">Experience</h3>
+        </div>
+        <p class="text-slate-400 leading-relaxed text-sm">Exploring artificial intelligence, research, and engineering through collaboration with leading institutions and experts.</p>
+      </div>
+
+      <!-- Metric Visuals Grid -->
+      <div class="grid grid-cols-2 gap-4">
+        <div class="p-4 bg-slate-900/30 border border-slate-800/60 rounded-xl hover:border-slate-700 transition-colors group">
+          <div class="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">3+</div>
+          <div class="text-[11px] text-slate-500 mt-1 uppercase font-medium tracking-wider">Institutions<br>Collaborated</div>
+        </div>
+        <div class="p-4 bg-slate-900/30 border border-slate-800/60 rounded-xl hover:border-slate-700 transition-colors group">
+          <div class="text-2xl font-bold text-white group-hover:text-indigo-400 transition-colors">5+</div>
+          <div class="text-[11px] text-slate-500 mt-1 uppercase font-medium tracking-wider">Major Projects<br>Worked On</div>
+        </div>
+        <div class="p-4 bg-slate-900/30 border border-slate-800/60 rounded-xl hover:border-slate-700 transition-colors group">
+          <div class="text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors">100+</div>
+          <div class="text-[11px] text-slate-500 mt-1 uppercase font-medium tracking-wider">Students Mentored<br>& Trained</div>
+        </div>
+        <div class="p-4 bg-slate-900/30 border border-slate-800/60 rounded-xl hover:border-slate-700 transition-colors group">
+          <div class="text-2xl font-bold text-emerald-400 animate-pulse">Ongoing</div>
+          <div class="text-[11px] text-slate-500 mt-1 uppercase font-medium tracking-wider">Research<br>Collaboration</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Vertical Timeline Track -->
+    <div class="md:col-span-2 relative border-l border-slate-800/80 ml-4 md:ml-6 pl-8 md:pl-10 space-y-6 before:absolute before:top-0 before:left-[-1px] before:h-full before:w-[1px] before:bg-gradient-to-b before:from-indigo-500 before:via-blue-500/40 before:to-transparent">
+      
+      <!-- Experience Item 1 -->
+      <div class="group relative timeline-card opacity-0 translate-y-4 transition-all duration-700 ease-out">
+        <div class="absolute -left-[41px] md:-left-[49px] top-6 w-5 h-5 rounded-full bg-slate-950 border-2 border-indigo-500 flex items-center justify-center z-10 transition-all duration-300 group-hover:border-purple-400 shadow-[0_0_10px_rgba(99,102,241,0.4)]">
+          <svg class="text-indigo-400 w-2.5 h-2.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="12" x="3" y="4" rx="2" ry="2"/><line x1="2" x2="22" y1="20" y2="20"/><line x1="12" x2="12" y1="16" y2="20"/></svg>
+        </div>
+        <div class="p-5 rounded-2xl bg-gradient-to-br from-slate-900/60 to-slate-900/20 border border-slate-800/80 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500/40 hover:shadow-[0_10px_30px_rgba(99,102,241,0.05)] hover:from-slate-900/80">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+            <div>
+              <h4 class="text-white font-semibold text-base group-hover:text-indigo-400 transition-colors">Ethiopian Artificial Intelligence Institute (EAII)</h4>
+              <p class="text-xs text-indigo-400 font-medium">AI Project Trainee</p>
+            </div>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-950/60 border border-indigo-800/40 text-indigo-300 self-start sm:self-center font-mono">2025</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">Worked on artificial intelligence projects under the guidance of researchers and mentors, gaining experience in machine learning, software development, and applying AI to real-world challenges.</p>
+        </div>
+      </div>
+
+      <!-- Experience Item 2 -->
+      <div class="group relative timeline-card opacity-0 translate-y-4 transition-all duration-700 ease-out">
+        <div class="absolute -left-[41px] md:-left-[49px] top-6 w-5 h-5 rounded-full bg-slate-950 border-2 border-blue-500 flex items-center justify-center z-10 transition-all duration-300 group-hover:border-cyan-400 shadow-[0_0_10px_rgba(59,130,246,0.4)]">
+          <svg class="text-blue-400 w-2.5 h-2.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <div class="p-5 rounded-2xl bg-gradient-to-br from-slate-900/60 to-slate-900/20 border border-slate-800/80 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/40 hover:shadow-[0_10px_30px_rgba(59,130,246,0.05)] hover:from-slate-900/80">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+            <div>
+              <h4 class="text-white font-semibold text-base group-hover:text-blue-400 transition-colors">Information Network Security Administration (INSA)</h4>
+              <p class="text-xs text-blue-400 font-medium">Cyber Talent Program <span class="text-slate-500">- Emerging Technology (AI)</span></p>
+            </div>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-blue-950/60 border border-blue-800/40 text-blue-300 self-start sm:self-center font-mono">2026</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">Selected for Ethiopia's national Cyber Talent Program in the Emerging Technology track, specializing in artificial intelligence and advanced computing while strengthening technical and advanced computing skills.</p>
+        </div>
+      </div>
+
+    <!-- Experience Item 3 -->
+      <div class="group relative timeline-card opacity-0 translate-y-4 transition-all duration-700 ease-out">
+        <div class="absolute -left-[41px] md:-left-[49px] top-6 w-5 h-5 rounded-full bg-slate-950 border-2 border-indigo-500 flex items-center justify-center z-10 transition-all duration-300 group-hover:border-purple-400 shadow-[0_0_10px_rgba(99,102,241,0.4)]">
+          <svg class="text-indigo-400 w-2.5 h-2.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 20v-6M2 20v-6M4 10h16M12 4v6M4 20h16M6 20v-6M10 20v-6M14 20v-6M18 20v-6"/></svg>
+        </div>
+        <div class="p-5 rounded-2xl bg-gradient-to-br from-slate-900/60 to-slate-900/20 border border-slate-800/80 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500/40 hover:shadow-[0_10px_30px_rgba(99,102,241,0.05)] hover:from-slate-900/80">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+            <div>
+              <h4 class="text-white font-semibold text-base group-hover:text-indigo-400 transition-colors">Wolaita Sodo University Technology Campus</h4>
+            </div>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-950/60 border border-indigo-800/40 text-indigo-300 self-start sm:self-center font-mono">2024 - Present</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">Collaborated with STEM initiatives, engineering programs, and innovation activities while working alongside university faculty and students on technology-focused projects.</p>
+        </div>
+      </div>
+
+      <!-- Experience Item 4 -->
+      <div class="group relative timeline-card opacity-0 translate-y-4 transition-all duration-700 ease-out">
+        <div class="absolute -left-[41px] md:-left-[49px] top-6 w-5 h-5 rounded-full bg-slate-950 border-2 border-blue-500 flex items-center justify-center z-10 transition-all duration-300 group-hover:border-cyan-400 shadow-[0_0_10px_rgba(59,130,246,0.4)]">
+          <svg class="text-blue-400 w-2.5 h-2.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2.5 3.19-2.5 5.5h20c0-2.31-1-4.24-2.5-5.5"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/></svg>
+        </div>
+        <div class="p-5 rounded-2xl bg-gradient-to-br from-slate-900/60 to-slate-900/20 border border-slate-800/80 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/40 hover:shadow-[0_10px_30px_rgba(59,130,246,0.05)] hover:from-slate-900/80">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+            <div>
+              <h4 class="text-white font-semibold text-base group-hover:text-blue-400 transition-colors">Independent AI Research</h4>
+              <p class="text-xs text-blue-400 font-medium">Ongoing</p>
+            </div>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-blue-950/60 border border-blue-800/40 text-blue-300 self-start sm:self-center font-mono">2025 - Present</span>
+          </div>
+          <div class="text-xs text-slate-400 space-y-3 leading-relaxed">
+            <p>Conducting independent research on trustworthy artificial intelligence for healthcare, with a focus on developing reliable AI systems for resource-limited settings.</p>
+            <p>Collaborating with physicians and healthcare professionals from Black Lion (Tukur Anbessa) Specialized Hospital, Sodo Christian Hospital, and Otona Hospital to better understand real clinical challenges and explore AI approaches that can support medical decision-making responsibly.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+         
+       
+          <!-- Put this wrapper right after your leadership section ends -->
+
+
+          
+          
+          
+          
+          
+<!-- =========================================================
+    TECHNICAL TOOLKIT SECTION
+    ========================================================= -->
+<section id="technical-toolkit" class="py-20 px-6 max-w-6xl mx-auto border-b border-slate-800/50 text-slate-100">
+    <div class="text-center mb-16" data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-3">Technical Toolkit</h2>
+        <p class="text-slate-400 max-w-xl mx-auto text-sm md:text-base">
+            The technologies, programming languages, and tools I use to build, explore, and innovate.
+        </p>
+    </div>
+
+    <!-- Toolkit Grid Layout (Upper Left Design Layout) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Programming Languages -->
+        <div class="rounded-2xl p-6 flex flex-col transition-all duration-300 border border-slate-800/80 bg-[#0b1329]/60 backdrop-blur-md hover:-translate-y-1.5 hover:border-cyan-400/40 hover:shadow-[0px_10px_30px_rgba(0,180,216,0.15)]" data-aos="fade-up" data-aos-delay="0">
+            <div class="flex items-center gap-4 mb-5">
+                <div class="p-3 rounded-xl border bg-blue-500/10 border-blue-500/20 flex items-center justify-center shadow-inner">
+                    <i class="fa-solid fa-code text-blue-400 text-xl"></i>
+                </div>
+                <h3 class="font-semibold text-lg text-slate-200 tracking-wide">Programming Languages</h3>
+            </div>
+            <ul class="space-y-2.5 flex-grow">
+                <li class="text-slate-400 text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>Python</li>
+                <li class="text-slate-400 text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>C++</li>
+                <li class="text-slate-400 text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>Arduino (Embedded C/C++)</li>
+                <li class="text-slate-400 text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>JavaScript</li>
+                <li class="text-slate-400 text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>React.js</li>
+                <li class="text-slate-400 text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>HTML5</li>
+                <li class="text-slate-400 text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>CSS3</li>
+            </ul>
+        </div>
+
+        <!-- Artificial Intelligence -->
+        <div class="rounded-2xl p-6 flex flex-col transition-all duration-300 border border-slate-800/80 bg-[#0b1329]/60 backdrop-blur-md hover:-translate-y-1.5 hover:border-cyan-400/40 hover:shadow-[0px_10px_30px_rgba(0,180,216,0.15)]" data-aos="fade-up" data-aos-delay="100">
+            <div class="flex items-center gap-4 mb-5">
+                <div class="p-3 rounded-xl border bg-purple-500/10 border-purple-500/20 flex items-center justify-center shadow-inner">
+                    <i class="fa-solid fa-brain text-purple-400 text-xl"></i>
+                </div>
+                <h3 class="font-semibold text-lg text-slate-200 tracking-wide">Artificial Intelligence</h3>
+            </div>
+            <ul class="space-y-2.5 flex-grow">
+                <li class="text-slate-400 text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>Machine Learning</li>
+                <li class="text-slate-400 text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>Deep Learning</li>
+                <li class="text-slate-400 text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>Artificial Neural Networks (ANN)</li>
+                <li class="text-slate-400 text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>Computer Vision</li>
+            </ul>
+        </div>
+
+        <!-- Embedded Systems -->
+        <div class="rounded-2xl p-6 flex flex-col transition-all duration-300 border border-slate-800/80 bg-[#0b1329]/60 backdrop-blur-md hover:-translate-y-1.5 hover:border-cyan-400/40 hover:shadow-[0px_10px_30px_rgba(0,180,216,0.15)]" data-aos="fade-up" data-aos-delay="200">
+            <div class="flex items-center gap-4 mb-5">
+                <div class="p-3 rounded-xl border bg-emerald-500/10 border-emerald-500/20 flex items-center justify-center shadow-inner">
+                    <i class="fa-solid fa-microchip text-emerald-400 text-xl"></i>
+                </div>
+                <h3 class="font-semibold text-lg text-slate-200 tracking-wide">Embedded Systems</h3>
+            </div>
+            <ul class="space-y-2.5 flex-grow">
+                <li class="text-slate-400 text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>Arduino Programming</li>
+                <li class="text-slate-400 text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>Microcontroller Programming</li>
+                <li class="text-slate-400 text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>Sensor Integration</li>
+                <li class="text-slate-400 text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>Hardware Prototyping</li>
+            </ul>
+        </div>
+
+        <!-- Web Development -->
+        <div class="rounded-2xl p-6 flex flex-col transition-all duration-300 border border-slate-800/80 bg-[#0b1329]/60 backdrop-blur-md hover:-translate-y-1.5 hover:border-cyan-400/40 hover:shadow-[0px_10px_30px_rgba(0,180,216,0.15)]" data-aos="fade-up" data-aos-delay="0">
+            <div class="flex items-center gap-4 mb-5">
+                <div class="p-3 rounded-xl border bg-amber-500/10 border-amber-500/20 flex items-center justify-center shadow-inner">
+                    <i class="fa-solid fa-laptop-code text-amber-400 text-xl"></i>
+                </div>
+                <h3 class="font-semibold text-lg text-slate-200 tracking-wide">Web Development</h3>
+            </div>
+            <ul class="space-y-2.5 flex-grow">
+                <li class="text-slate-400 text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>Responsive Front-end Development</li>
+                <li class="text-slate-400 text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>React.js</li>
+                <li class="text-slate-400 text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>Modern UI/UX Implementation</li>
+            </ul>
+        </div>
+
+        <!-- Tools & Platforms -->
+        <div class="rounded-2xl p-6 flex flex-col lg:col-span-2 transition-all duration-300 border border-slate-800/80 bg-[#0b1329]/60 backdrop-blur-md hover:-translate-y-1.5 hover:border-cyan-400/40 hover:shadow-[0px_10px_30px_rgba(0,180,216,0.15)]" data-aos="fade-up" data-aos-delay="100">
+            <div class="flex items-center gap-4 mb-5">
+                <div class="p-3 rounded-xl border bg-cyan-500/10 border-cyan-500/20 flex items-center justify-center shadow-inner">
+                    <i class="fa-solid fa-toolbox text-cyan-400 text-xl"></i>
+                </div>
+                <h3 class="font-semibold text-lg text-slate-200 tracking-wide">Tools & Platforms</h3>
+            </div>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 flex-grow">
+                <li class="text-slate-400 text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>Visual Studio Code</li>
+                <li class="text-slate-400 text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>TensorFlow</li>
+                <li class="text-slate-400 text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>Google Colab</li>
+                <li class="text-slate-400 text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>PyTorch</li>
+                <li class="text-slate-400 text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>Jupyter Notebook</li>
+                <li class="text-slate-400 text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>Scikit-learn</li>
+                <li class="text-slate-400 text-sm flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>Git & GitHub</li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+
+ <!-- =========================================================
+    SELECTED CERTIFICATIONS SECTION WITH INTERACTIVE MODAL
+    ========================================================= -->
+<section id="certifications" class="py-20 px-6 max-w-6xl mx-auto text-slate-100">
+    <div class="text-center mb-16" data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-3">Selected Certifications & Honors</h2>
+        <p class="text-slate-400 max-w-xl mx-auto text-sm md:text-base">
+            Continuous learning, academic honors, and foundational milestones. Click any card to inspect the document.
+        </p>
+    </div>
+
+    <!-- 3-Column Grid for Premium Presentation -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Card 1: AI Fundamentals -->
+        <div class="group rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 border border-slate-800/60 bg-[#0b1329]/40 backdrop-blur-md hover:-translate-y-1.5 hover:border-cyan-400/40 hover:shadow-[0px_10px_30px_rgba(0,180,216,0.15)]" data-aos="fade-up">
+            <div>
+                <div class="text-xs font-semibold tracking-wider text-cyan-400 uppercase mb-3">Udacity</div>
+                <h3 class="font-bold text-white text-base mb-2 leading-snug">AI Fundamentals</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Foundations of artificial intelligence, machine learning concepts, and intelligent systems.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/60 flex items-center justify-between text-xs text-slate-500">
+                <span>2024</span>
+                <button onclick="openCertificate('ai.png')" class="text-cyan-400/80 hover:text-cyan-400 font-medium transition-colors">View Credential →</button>
+            </div>
+        </div>
+
+        <!-- Card 2: Programming Fundamentals -->
+        <div class="group rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 border border-slate-800/60 bg-[#0b1329]/40 backdrop-blur-md hover:-translate-y-1.5 hover:border-cyan-400/40 hover:shadow-[0px_10px_30px_rgba(0,180,216,0.15)]" data-aos="fade-up">
+            <div>
+                <div class="text-xs font-semibold tracking-wider text-cyan-400 uppercase mb-3">Udacity</div>
+                <h3 class="font-bold text-white text-base mb-2 leading-snug">Programming Fundamentals</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Core programming concepts, algorithms, and software development principles.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/60 flex items-center justify-between text-xs text-slate-500">
+                <span>2024</span>
+                <button onclick="openCertificate('programming.png')" class="text-cyan-400/80 hover:text-cyan-400 font-medium transition-colors">View Credential →</button>
+            </div>
+        </div>
+
+        <!-- Card 3: Data Analysis -->
+        <div class="group rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 border border-slate-800/60 bg-[#0b1329]/40 backdrop-blur-md hover:-translate-y-1.5 hover:border-cyan-400/40 hover:shadow-[0px_10px_30px_rgba(0,180,216,0.15)]" data-aos="fade-up">
+            <div>
+                <div class="text-xs font-semibold tracking-wider text-cyan-400 uppercase mb-3">Udacity</div>
+                <h3 class="font-bold text-white text-base mb-2 leading-snug">Data Analysis</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Data preprocessing, analysis, visualization, and practical data-driven decision making.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/60 flex items-center justify-between text-xs text-slate-500">
+                <span>2024</span>
+                <button onclick="openCertificate('data.png')" class="text-cyan-400/80 hover:text-cyan-400 font-medium transition-colors">View Credential →</button>
+            </div>
+        </div>
+
+        <!-- Card 4: Android Developer -->
+        <div class="group rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 border border-slate-800/60 bg-[#0b1329]/40 backdrop-blur-md hover:-translate-y-1.5 hover:border-cyan-400/40 hover:shadow-[0px_10px_30px_rgba(0,180,216,0.15)]" data-aos="fade-up">
+            <div>
+                <div class="text-xs font-semibold tracking-wider text-cyan-400 uppercase mb-3">Udacity</div>
+                <h3 class="font-bold text-white text-base mb-2 leading-snug">Android Developer Fundamentals</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Android application development using modern mobile development practices.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/60 flex items-center justify-between text-xs text-slate-500">
+                <span>2023</span>
+                <button onclick="openCertificate('android.png')" class="text-cyan-400/80 hover:text-cyan-400 font-medium transition-colors">View Credential →</button>
+            </div>
+        </div>
+
+        <!-- Card 5: JavaScript Algorithms -->
+        <div class="group rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 border border-slate-800/60 bg-[#0b1329]/40 backdrop-blur-md hover:-translate-y-1.5 hover:border-cyan-400/40 hover:shadow-[0px_10px_30px_rgba(0,180,216,0.15)]" data-aos="fade-up">
+            <div>
+                <div class="text-xs font-semibold tracking-wider text-cyan-400 uppercase mb-3">freeCodeCamp</div>
+                <h3 class="font-bold text-white text-base mb-2 leading-snug">JavaScript Algorithms & Data Structures</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Algorithms, data structures, and JavaScript programming for web applications.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/60 flex items-center justify-between text-xs text-slate-500">
+                <span>2023</span>
+                <button onclick="openCertificate('javascript.png')" class="text-cyan-400/80 hover:text-cyan-400 font-medium transition-colors">View Credential →</button>
+            </div>
+        </div>
+
+        <!-- Card 6: EAII Summer Camp -->
+        <div class="group rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 border border-slate-800/60 bg-[#0b1329]/40 backdrop-blur-md hover:-translate-y-1.5 hover:border-cyan-400/40 hover:shadow-[0px_10px_30px_rgba(0,180,216,0.15)]" data-aos="fade-up">
+            <div>
+                <div class="text-xs font-semibold tracking-wider text-cyan-400 uppercase mb-3">EAII</div>
+                <h3 class="font-bold text-white text-base mb-2 leading-snug">Ethiopian Artificial Intelligence Institute</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Completed intensive summer camp track specializing in emerging technology and intelligence frameworks.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/60 flex items-center justify-between text-xs text-slate-500">
+                <span>Honorary</span>
+                <button onclick="openCertificate('ethiopian.png')" class="text-cyan-400/80 hover:text-cyan-400 font-medium transition-colors">View Credential →</button>
+            </div>
+        </div>
+
+        <!-- Card 7: School Tech Club President -->
+        <div class="group rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 border border-slate-800/60 bg-[#0b1329]/40 backdrop-blur-md hover:-translate-y-1.5 hover:border-cyan-400/40 hover:shadow-[0px_10px_30px_rgba(0,180,216,0.15)]" data-aos="fade-up">
+            <div>
+                <div class="text-xs font-semibold tracking-wider text-cyan-400 uppercase mb-3">Leadership</div>
+                <h3 class="font-bold text-white text-base mb-2 leading-snug">President and Founder</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Spearheaded founding operations, club curriculum development, and student mentorship for the School Tech Club.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/60 flex items-center justify-between text-xs text-slate-500">
+                <span>Leadership</span>
+                <button onclick="openCertificate('president.png')" class="text-cyan-400/80 hover:text-cyan-400 font-medium transition-colors">View Credential →</button>
+            </div>
+        </div>
+
+        <!-- Card 8: WSU STEM Center -->
+        <div class="group rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 border border-slate-800/60 bg-[#0b1329]/40 backdrop-blur-md hover:-translate-y-1.5 hover:border-cyan-400/40 hover:shadow-[0px_10px_30px_rgba(0,180,216,0.15)]" data-aos="fade-up">
+            <div>
+                <div class="text-xs font-semibold tracking-wider text-cyan-400 uppercase mb-3">WSU</div>
+                <h3 class="font-bold text-white text-base mb-2 leading-snug">WSU STEM Center Trainee</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Conducted hands-on training tracks in advanced computing, structural logic development, and engineering principles.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/60 flex items-center justify-between text-xs text-slate-500">
+                <span>Trainee</span>
+                <button onclick="openCertificate('wsu.png')" class="text-cyan-400/80 hover:text-cyan-400 font-medium transition-colors">View Credential →</button>
+            </div>
+        </div>
+
+        <!-- Card 9: National Math Olympiad -->
+        <div class="group rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 border border-slate-800/60 bg-[#0b1329]/40 backdrop-blur-md hover:-translate-y-1.5 hover:border-cyan-400/40 hover:shadow-[0px_10px_30px_rgba(0,180,216,0.15)]" data-aos="fade-up">
+            <div>
+                <div class="text-xs font-semibold tracking-wider text-cyan-400 uppercase mb-3">Competition</div>
+                <h3 class="font-bold text-white text-base mb-2 leading-snug">National Mathematics Olympiad Medalist</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Awarded distinguished placement standing in high-stakes regional and national analytical testing rounds.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/60 flex items-center justify-between text-xs text-slate-500">
+                <span>Medalist</span>
+                <button onclick="openCertificate('mathematics.png')" class="text-cyan-400/80 hover:text-cyan-400 font-medium transition-colors">View Credential →</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+
+<!-- =========================================================
+    FULL SCREEN OVERLAY VIEWER COMPONENT (LANDSCAPE OPTIMIZED)
+    ========================================================= -->
+<div id="certViewer" class="fixed inset-0 z-50 hidden bg-black/95 backdrop-blur-md flex flex-col items-center justify-center p-4 transition-all duration-300">
+    
+    <!-- Top-Left Back Button -->
+    <button onclick="closeCertificate()" class="absolute top-6 left-6 z-50 flex items-center gap-2 px-4 py-2 bg-slate-900/80 border border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white font-medium text-sm rounded-xl backdrop-blur transition shadow-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+        </svg>
+        Back to Portfolio
+    </button>
+
+    <!-- Certificate Graphic Container (Forces Natural Wide Aspect Ratio) -->
+    <div class="w-full max-w-4xl max-h-[85vh] flex items-center justify-center px-2 md:px-6">
+        <img id="viewerImage" src="" alt="Credential View" class="w-full h-auto max-h-[75vh] object-contain rounded-lg shadow-2xl border border-slate-800/40 transition-transform duration-300">
+    </div>
+</div>
+
+
+
+
+
+
+  </div> <!-- End Scrolling Layer -->
+
+  <!-- Sliding Bottom Sheet View Container for Project Popups -->
+  <div class="project-modal bg-[#020617] px-6 py-16">
+    <div class="max-w-4xl mx-auto space-y-8">
+      <button onclick="closeProject()" class="inline-flex items-center space-x-2 text-sm text-blue-400 hover:text-blue-300 font-medium transition-colors group">
+        <span>&larr; Back to Overview</span>
+      </button>
+      <div id="modal-content" class="space-y-8"></div>
+    </div>
+  </div>
+  
+  
+  
+  </div>
+          
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true, offset: 120 });
+
+    const data = {
+      drought: {
+        title: "Explainable AI Platform for Agricultural Drought Forecasting",
+        tags: ["Machine Learning", "Climate Technology", "Decision Support Systems"],
+        desc: "Agriculture remains one of the most important sources of livelihood in Southern Ethiopia, yet it is increasingly vulnerable to irregular rainfall and prolonged droughts. This project explores how machine learning and publicly available environmental data can be combined to forecast drought conditions and present predictions through an accessible, explainable decision-support platform.",
+        challenge: "According to the Food and Agriculture Organization (FAO), approximately 15.8 million people in Ethiopia face acute food insecurity. Models exist but remain hidden inside complex academic repositories; local leaders need interpretable data.",
+        approach: "The project combines environmental datasets from multiple sources—including rainfall (CHIRPS), temperature (ERA5), vegetation health (MODIS NDVI), and soil moisture (FLDAS). Systems apply Scikit-learn, XGBoost, and Random Forest architectures.",
+        question: "How can explainable artificial intelligence and publicly available climate data be combined into an accessible platform?",
+        impact: "This project aims to explore how explainable artificial intelligence can make drought forecasting more accessible, transparent, and useful."
+      },
+      embedded: {
+        title: "Embedded Systems & Community Automation Prototypes",
+        tags: ["Arduino", "Embedded C/C++", "Hardware Architecture"],
+        desc: "A framework covering three distinct structural platforms engineered to resolve immediate institutional gaps: 1. Fingerprint Attendance System deployed at Wolaita Sodo University and Liqa School. 2. Smart Water Quality Monitor using pH tracking arrays. 3. Automatic School Bell Module.",
+        challenge: "Manual ledger dependencies open operations up to massive entry errors, human oversight delay, and severe administrative time sinks across public spaces.",
+        approach: "Assembling physical iterations linking core microcontrollers with RTC timer relays, hardware liquid sensor components, biometric scanners, and LCD indicators driven via optimized low-power C++ execution files.",
+        question: "How can resource-effective microcontrollers and reliable integrated arrays be structured to scale down public organizational tracking expenses?",
+        impact: "Automated tracking systems eliminate human validation latency, improve monitoring transparency, and introduce preventative safety infrastructure directly into community spaces."
+      },
+      mental: {
+        title: "Multilingual AI Platform for Accessible Mental Health Support",
+        tags: ["Natural Language Processing", "Large Language Models", "AI Safety"],
+        desc: "Mental health support remains difficult to access for many people in Ethiopia, particularly those affected by conflict, displacement, and traumatic experiences. This platform explores a multilingual approach providing anonymous, culturally aware safe spaces alongside a custom safety-bounded language model companion.",
+        challenge: "Existing global assistance platforms are built completely disconnected from local Ethiopian dialects, societal context, or regional cultural sensitivities, worsening accessibility boundaries.",
+        approach: "Deploying Python natural language processing structures utilizing Retrieval-Augmented Generation (RAG) modules to safely surface supportive interactions while actively evaluating real-time safety risk matrices.",
+        question: "How can large language models be securely deployed with multilingual retrieval capabilities to offer culturally competent support while maintaining strict safety boundaries?",
+        impact: "Provides an completely anonymous, accessible first-line gateway for underserved communities, bridging structural therapy shortages safely without misrepresenting computational assistance parameters."
+      },
+      school: {
+        title: "Integrated School Management & Information System",
+        tags: ["React / Next.js", "Node.js", "Relational Databases"],
+        desc: "A comprehensive digital web workspace constructed to completely migrate manual administrative operations into secure, localized multi-tier portal systems.",
+        challenge: "Paper records generated delays, requiring remote students to travel immense distances physically just to verify single registrations, fee transactions, or final reports.",
+        approach: "Co-developed an integrated system offering role-based authorization layers across administrative panels, teacher score trackers, and student self-service dashboards using a centralized relational database and structural REST APIs.",
+        question: "How can integrated full-stack platforms centralize localized school operations to completely eliminate human processing errors?",
+        impact: "Successfully active as the official institutional portal, dramatically speeding up verification procedures, automating tuition reporting, and providing robust analytics dashboards."
+      }
+    };
+
+    function openProject(id) {
+      const p = data[id];
+      let tagBadges = p.tags.map(t => `<span class="bg-blue-950 text-blue-400 font-mono text-xs px-2.5 py-1 rounded border border-blue-900/50">${t}</span>`).join(' ');
+      
+      document.getElementById('modal-content').innerHTML = `
+        <div class="space-y-4">
+          <h1 class="text-3xl sm:text-4xl font-black tracking-tight text-white leading-tight">${p.title}</h1>
+          <div class="flex flex-wrap gap-2 pt-2">${tagBadges}</div>
+        </div>
+        <hr class="border-slate-900">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div class="lg:col-span-2 space-y-6 text-slate-300 text-sm leading-relaxed">
+            <div><h3 class="text-white font-bold text-base mb-2">Project Overview</h3><p>${p.desc}</p></div>
+            <div><h3 class="text-white font-bold text-base mb-2">The Structural Challenge</h3><p>${p.challenge}</p></div>
+            <div><h3 class="text-white font-bold text-base mb-2">Development Approach</h3><p>${p.approach}</p></div>
+          </div>
+          <div class="space-y-6">
+            <div class="bg-blue-950/30 border border-blue-900/40 p-5 rounded-xl">
+              <h4 class="text-xs font-bold text-blue-400 uppercase tracking-wider">Research Inquiry</h4>
+              <p class="text-white italic text-sm mt-2">"${p.question}"</p>
+            </div>
+            <div class="bg-slate-900/30 border border-slate-800 p-5 rounded-xl">
+              <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-2">Targeted Impact</h4>
+              <p class="text-slate-400 text-xs leading-relaxed">${p.impact}</p>
+            </div>
+          </div>
+        </div>`;
+      document.body.classList.add('modal-active');
+    }
+
+    function closeProject() {
+      document.body.classList.remove('modal-active');
+    }
+  </script>
+  
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observerOptions = {
+      root: null,
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Removes initial setup styles to let Tailwind transition them up smooth
+          entry.target.classList.remove('opacity-0', 'translate-y-4');
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.timeline-card').forEach(card => {
+      observer.observe(card);
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observerOptions = {
+      root: null,
+      threshold: 0.05, // Lowered threshold slightly so larger text blocks trigger easier on mobile layouts
+      rootMargin: "0px 0px -40px 0px"
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('opacity-0', 'translate-y-4');
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.timeline-card').forEach(card => {
+      observer.observe(card);
+    });
+  });
+</script>
+
+<!-- =========================================================
+    JAVASCRIPT MODAL VIEWER INTERACTION LOGIC
+    ========================================================= -->
+<script>
+    function openCertificate(imageSrc) {
+        const viewer = document.getElementById('certViewer');
+        const img = document.getElementById('viewerImage');
+        
+        img.src = imageSrc;
+        viewer.classList.remove('hidden');
+        document.body.style.overflow = 'hidden'; // Freeze site scroll beneath modal
+    }
+
+    function closeCertificate() {
+        const viewer = document.getElementById('certViewer');
+        viewer.classList.add('hidden');
+        document.body.style.overflow = 'auto'; // Unlock site scroll
+    }
+
+    // Secondary safety: Close window if dark border gap is tapped
+    document.getElementById('certViewer').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeCertificate();
+        }
+    });
+</script>
+
+
+
+
+
+</body>
+</html>
