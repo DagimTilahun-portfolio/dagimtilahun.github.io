@@ -132,6 +132,7 @@
 
 
 
+
     <!-- About Section -->
     <section class="max-w-6xl mx-auto px-6 py-24 space-y-16">
       <div class="max-w-4xl space-y-4" data-aos="fade-up" data-aos-duration="1000">
@@ -195,6 +196,35 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-6">
+            
+                      <!-- Cardiovascular AI Project Card -->
+          <div class="bg-slate-900/40 border border-slate-800/70 rounded-2xl overflow-hidden flex flex-col justify-between h-full transition-all duration-300 hover:scale-[1.03] hover:border-blue-500/40 glow-hover" data-aos="fade-right" data-aos-duration="1000">
+            <div class="aspect-video w-full overflow-hidden bg-slate-950 relative">
+              <img src="cardio-ai.jpg" alt="AI for Cardiovascular Disease Prediction" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6 space-y-4 flex-grow flex flex-col justify-between">
+              <div>
+                <span class="bg-blue-500/10 text-blue-400 text-[10px] font-bold tracking-wider uppercase px-2 py-1 rounded border border-blue-500/20">🔄 Ongoing Research</span>
+                <h3 class="text-xl font-bold text-white mt-2">AI for Cardiovascular Disease Prediction in Low-Resource Healthcare</h3>
+                <p class="text-xs text-slate-400 mt-2 line-clamp-3">Investigating model generalizability, dataset bias, and Explainable AI (XAI) for cardiovascular screening in primary healthcare facilities across Ethiopia.</p>
+                
+                <!-- Project Stats Summary -->
+                <div class="grid grid-cols-2 gap-2 mt-4 text-[11px] text-slate-300">
+                  <div class="bg-slate-950/60 p-2 rounded-lg border border-slate-800/80">
+                    <span class="text-slate-500 text-[9px] block uppercase font-bold">Hospitals</span>
+                    <span class="font-bold text-white">4 Collaborating</span>
+                  </div>
+                  <div class="bg-slate-950/60 p-2 rounded-lg border border-slate-800/80">
+                    <span class="text-slate-500 text-[9px] block uppercase font-bold">Clinical Data</span>
+                    <span class="font-bold text-white">35+ Questionnaires</span>
+                  </div>
+                </div>
+              </div>
+              <button onclick="openProject('cardio')" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-medium py-2.5 rounded-xl transition-colors text-xs font-bold tracking-wide mt-4">Read More &rarr;</button>
+            </div>
+          </div>
+
+
           <!-- Project 1 Card -->
           <div class="bg-slate-900/40 border border-slate-800/70 rounded-2xl overflow-hidden flex flex-col justify-between h-full transition-all duration-300 hover:scale-[1.03] hover:border-blue-500/40 glow-hover" data-aos="fade-right" data-aos-duration="1000">
             <div class="aspect-video w-full overflow-hidden bg-slate-950">
@@ -257,14 +287,10 @@
         </div>
       </div>
     </section>
-
-
-
-
-
-
-
-
+    
+    
+    
+    
 <!-- =========================================================
     LEADERSHIP & EXPERIENCE MEDIA GRID
     ========================================================= -->
@@ -360,17 +386,6 @@
 
 
 </section>
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- LEADERSHIP & EXPERIENCE SECTION CONTAINER -->
@@ -493,8 +508,10 @@
   </div>
 
   <hr class="border-slate-900/60 my-6" />
-
-  <!-- ================= EXPERIENCE GROUP ================= -->
+  
+  
+  
+    <!-- ================= EXPERIENCE GROUP ================= -->
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
     
     <!-- Left Column: Title & Analytics Stats (Sticky behavior fixed on Mobile) -->
@@ -607,16 +624,30 @@
   </div>
 
 
-         
-       
-          <!-- Put this wrapper right after your leadership section ends -->
 
 
-          
-          
-          
-          
-          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- =========================================================
     TECHNICAL TOOLKIT SECTION
     ========================================================= -->
@@ -718,6 +749,7 @@
 
     </div>
 </section>
+
 
 
  <!-- =========================================================
@@ -856,8 +888,6 @@
 
 
 
-
-
 <!-- =========================================================
     FULL SCREEN OVERLAY VIEWER COMPONENT (LANDSCAPE OPTIMIZED)
     ========================================================= -->
@@ -903,21 +933,21 @@
   
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ once: true, offset: 120 });
 
     const data = {
+            
+        cardio: {
+        title: "AI for Cardiovascular Disease Prediction in Low-Resource Healthcare",
+        tags: ["Machine Learning", "Healthcare AI", "Explainable AI (XAI)", "Python"],
+        desc: "This ongoing research investigates how Artificial Intelligence can support cardiovascular disease screening in resource-constrained healthcare systems, with a focus on Ethiopia. The study examines whether machine learning models developed using international datasets generalize to Ethiopian patients and explores the design of lightweight prediction models using low-cost, routinely available clinical features suitable for primary healthcare facilities.",
+        challenge: "Cardiovascular diseases are rapidly increasing in low- and middle-income regions, yet diagnostic equipment and specialist cardiologists remain concentrated in urban centers. Rather than pursuing prediction accuracy alone, this project addresses demographic differences, dataset bias, and resource limitations that impede safe adoption.",
+        approach: "Collaborating with clinicians across 4 Ethiopian hospitals to gather 35+ clinical questionnaires. Testing Logistic Regression, Random Forest, and XGBoost models combined with SHAP and LIME explainability methods to ensure model reliability and actionable transparency.",
+        question: "How can resource-aware, explainable machine learning models be safely deployed to support early cardiovascular risk assessment in low-resource primary healthcare settings?",
+        impact: "Aims to deliver clinically meaningful, interpretable, and resource-aware AI systems supporting early cardiovascular screening in underserved communities while contributing evidence toward trustworthy AI for global health."
+      },
       drought: {
         title: "Explainable AI Platform for Agricultural Drought Forecasting",
         tags: ["Machine Learning", "Climate Technology", "Decision Support Systems"],
@@ -1015,6 +1045,7 @@
     });
   });
 </script>
+
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
